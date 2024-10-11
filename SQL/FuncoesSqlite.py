@@ -12,27 +12,27 @@ def inserir_dados():
     compra = input("Insira se foi comprado ou vendido: ")
     marca = input("Insira qual é a marca de pneu: ")
     qntd = input("Insita a quantidade de pneus")
-    valor = input(".")
-    conn.execute("INSERT INTO oficina_do_seu_zé VALUES ('2024-01-05','COMPRADO','Michelin', 16 ,2434.14)")
+    valor = input("Insira quanto você pagou nos pneus: ")
+    revender = input("Insira por quanto você vai revender: ")
+    conn.execute(f"INSERT INTO oficina_do_seu_zé VALUES ({data},{compra},{marca},{qntd},{valor},{revender})")
 
     conn.commit()
 
-def Ler_dados():
-    cursor = conn.execute("SELECT * FROM oficina_do_seu_zé")
-    for row in cursor:
-        print(row)
+# def Ler_dados():
+#     cursor = conn.execute("SELECT * FROM oficina_do_seu_zé")
+#     for row in cursor:
+#         print(row)
         
-def Atualizar_dados():
-    escolher = input("Digite o preço que deseja atualizar: ")
-    conn.execute(f"UPDATE oficina_do_seu_zé SET price = {escolher} WHERE symbol = 'Pirelli'")
+# def Atualizar_dados():
+#     escolher = input("Digite o preço que deseja atualizar: ")
+#     conn.execute(f"UPDATE oficina_do_seu_zé SET price = {escolher} WHERE symbol = 'Pirelli'")
     
-def Deletar_dados():
-    conn.execute("DELETE FROM oficina_do_seu_zé WHERE symbol = 'Goodyear'")
-    
+# def Deletar_dados():
+#     conn.execute("DELETE FROM oficina_do_seu_zé WHERE symbol = 'Goodyear'")
 criar_tabela()
 inserir_dados()
-Ler_dados()
-Atualizar_dados()
-Deletar_dados()
+# Ler_dados()
+# Atualizar_dados()
+# Deletar_dados()
 
 conn.close()
